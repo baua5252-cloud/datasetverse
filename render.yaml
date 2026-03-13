@@ -1,0 +1,20 @@
+services:
+  - type: web
+    runtime: node
+    name: datasetverse
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+      - key: KAGGLE_USERNAME
+        sync: false
+      - key: KAGGLE_KEY
+        sync: false
+    disk:
+      name: datasetverse-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
