@@ -1,11 +1,9 @@
 services:
   - type: web
-    runtime: node
+    runtime: docker
     name: datasetverse
     plan: free
     region: oregon
-    buildCommand: npm install && npm run build
-    startCommand: npm start
     numInstances: 1
     envVars:
       - key: JWT_SECRET
